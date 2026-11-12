@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "id": "linspectacles-systemd-inspector",
+  "name": "Systemd Inspector",
+  "version": "1.0.0",
+  "author": "brunonlinespace",
+  "editor": "brunonlinespace",
+  "publisher": "brunonlinespace",
+  "organization_id": "linspectacles",
+  "organization_url": "https://github.com/linspectacles/",
+  "repository": "https://github.com/linspectacles/systemd-inspector",
+  "order": 30,
+  "entrypoint": "systemd_inspector/applet.py",
+  "factory": "create_applet",
+  "standalone": "standalone.py",
+  "description": "Read-only systemd inspector for system/current-user runtime units and installed unit files, with radio-selected inventory mode, filter-row System/User manager scope, persistent Runtime Units failed-only filtering, whole-manager state/default-target/properties/unit-path/job inspection, unit-type and state filtering, live status, cgroup/runtime state, recent journal, complete systemctl show properties, native Requirements/Reverse/After/Before dependency traversal, unit-file provenance/effective fragments and drop-ins, focused service runtime outcome/lifecycle fields, native Timer/Socket/Path analysis, resource controls, sandbox settings, and optional systemd-analyze security output.",
+  "platforms": [
+    "linux"
+  ],
+  "read_only": true
+}
