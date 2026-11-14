@@ -1,13 +1,3 @@
-<p align="center">
-  <a href="https://github.com/brunonlinespace/brunonlinespace/blob/main/linspectacles/systemd-inspector.png">
-    <img
-      src="https://raw.githubusercontent.com/brunonlinespace/brunonlinespace/main/linspectacles/systemd-inspector.png"
-      alt="Systemd Inspector screenshot"
-      width="900"
-    >
-  </a>
-</p>
-
 # Systemd Inspector
 
 **Expose. Explore. Explain.**
@@ -18,11 +8,21 @@ Current release: **1.0.0**
 
 Repository: <https://github.com/linspectacles/systemd-inspector>
 
+<p align="center">
+  <a href="https://github.com/brunonlinespace/brunonlinespace/blob/main/linspectacles/systemd-inspector.png">
+    <img
+      src="https://raw.githubusercontent.com/brunonlinespace/brunonlinespace/main/linspectacles/systemd-inspector.png"
+      alt="Systemd Inspector screenshot"
+      width="900"
+    >
+  </a>
+</p>
+
 ## What Systemd Inspector is
 
 Systemd Inspector answers a focused question: **what does systemd report about its units, unit files, manager state, dependencies and runtime resource context?**
 
-It keeps acquisition and interpretation close to the Linux interfaces actually used by the applet. When a source is unavailable, restricted, or does not report a field, the README does not imply that the applet can manufacture the missing information.
+The applet reports information available from its documented Linux sources. Data that is unavailable, restricted, or not reported by those sources remains explicitly unavailable rather than being inferred.
 
 ## Highlights
 
@@ -87,9 +87,19 @@ python -m pip install PyQt6
 python3 linspectacles_systemd_inspector/standalone.py
 ```
 
-Linux commands, procfs/sysfs interfaces, system services, or optional helpers mentioned in **Data sources and acquisition** are applet-specific runtime inputs. A missing optional source is handled by the applet's existing availability/error path; it is not replaced here with an invented dependency or capability.
+Linux commands, procfs/sysfs interfaces, system services, or optional helpers mentioned in **Data sources and acquisition** are applet-specific runtime inputs. Data that is unavailable, restricted, or not reported by those sources remains explicitly unavailable rather than being inferred.
 
 No RPM installation instructions are included in this README.
+
+## LinSpectacles Hub
+
+This applet can run independently, but it can also be installed and used inside **[LinSpectacles Hub](https://github.com/linspectacles/linspectacles-hub)**.
+
+LinSpectacles Hub is the optional workbench for the LinSpectacles applet family. It provides shared applet discovery, navigation and management while each inspector remains independently runnable.
+
+To install a portable or user applet through the Hub, open **Configuration... → Applets** and add the applet ZIP. Once discovered, the applet can be enabled and opened from the Hub navigation.
+
+System-installed applets are discovered by the Hub from its system applet store and remain managed by the system package manager.
 
 ## Source layout and LinSpectacles integration
 
@@ -109,7 +119,7 @@ linspectacles_systemd_inspector/
     └── icon.png
 ```
 
-`applet.json` supplies the LinSpectacles applet identity and entrypoint metadata. `standalone.py` launches the applet directly, while the package's applet factory provides the host-loadable LinSpectacles integration used by the source.
+`applet.json` defines the applet's LinSpectacles identity and integration metadata. `standalone.py` provides direct standalone launching, while the applet entrypoint allows the same inspector to run inside LinSpectacles Hub.
 
 ## Configuration
 
@@ -126,6 +136,7 @@ GNU General Public License v3.0 or later. See [`LICENSE`](LICENSE).
 ## Links
 
 - LinSpectacles organisation: <https://github.com/linspectacles/>
+- LinSpectacles Hub: <https://github.com/linspectacles/linspectacles-hub>
 - Repository: <https://github.com/linspectacles/systemd-inspector>
 - Issues: <https://github.com/linspectacles/systemd-inspector/issues>
 
